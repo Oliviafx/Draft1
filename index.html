@@ -7,6 +7,7 @@ body {
 }
 
 h1 {
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
     color: black;
     text-align: center;
 }
@@ -15,19 +16,43 @@ p {
     font-family: "Trebuchet MS", Helvetica, sans-serif;
     font-size: 20px;
 }
+
+ul{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	position:fixed;
+}
+
+li{
+	float: left;
+}
+
+li a{
+	display: block;
+	color: black;
+	text-align: center;
+	padding:14px 16px;
+	text-decoration: none;
+}
+
+li a:hover {
+	background-color:#02A9F1;
+}
+
+li a.active {
+	background-color: #559FBF;
+}
+
 </style>
 </head>    
 <!--Adding a NavBar at the top -->
-<div class = "top">
-	<div class = "NavBar" id = "NavBar">
-	<a class ="items" href = "javascript:void(0);" onclick="toggleFunction()" title = "Toggle NavBar">
-	<i class = "fa fa-bars"></i>
-	</a>
-	<a href="#home" class="button"> HOME </a>
-	<a href="#search" class="button"> SEARCH </a>
-	</div>
-	</div>
-
+<ul>
+	<li><a href="#home" class="button"> HOME </a></li>
+	<li><a href="#search" class="button"> SEARCH </a></li>
+	
+</ul>
 
 <body>
 <h1> Hello World! </h1>
