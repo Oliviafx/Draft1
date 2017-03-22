@@ -1,3 +1,4 @@
+/*
 //$("submit").click(function(){
     $.ajax({
     url: 'https://api.yelp.com/v3/businesses/search?location=london',
@@ -14,3 +15,11 @@
 // $.get(URL,data,function(data,status,xhr),dataType)
 
 // https://www.w3schools.com/jquery/ajax_get.asp
+
+
+*/
+$("submitbutton").click(function(){
+		document.write("submit clicked");
+	})
+
+
