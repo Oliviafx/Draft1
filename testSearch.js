@@ -6,7 +6,7 @@
         xhr.setRequestHeader('Authorization', 'Bearer rUkajLiHIMVFO3mx9jMTIY13XuM8GdVabuF1t37ew4di-l0XD1xhSZ-sKqf7ozxvYEC_WwH-Zn8JSOH73EVA_Jb2oIPDZz_IJ_D6ZE4KAb8nFc9wp6aUb-KDM77SWHYx
 ');
 //    },
-    data: {location=london},
+    data: {location:london},
     success: function (data) { document.getElementById("testContent").innerHTML = data; },
     error: function () {document.getElementById("testContent").innerHTML = "whoops, there was an error"; },
     });
