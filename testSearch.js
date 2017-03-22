@@ -8,7 +8,7 @@
 //    },
     data: {location=london},
     success: function (data) { document.getElementById("testContent").innerHTML = data; },
-    error: function () { },
+    error: function () {document.getElementById("testContent").innerHTML = "whoops, there was an error"; },
     });
 });
 
