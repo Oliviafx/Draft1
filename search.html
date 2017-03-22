@@ -16,7 +16,7 @@
 
 <h1> Search for what you want: </h1>
 <center>
-<form>
+<form action="jsscript">
   <input type="text" name="search" placeholder="Search..">
   <p/>
   <p/>
@@ -31,8 +31,7 @@
   	<option value="$$$$"> $$$$ </option>
   </select>
   <p/>
-  <input type="button" id="submitbutton"> 
-  <label for="submitbutton"> Submit! </label>
+  <input type="submit" value="Submit"> 
 </form>
 </center>
 <p id="demos"></p>
@@ -76,7 +75,7 @@ function submit(){
 </script>
 -->
 
-<script type="text/javascript">
+<script type="text/javascript" id="jsscript">
 	$("submitbutton").click(function(){
 		document.write("submit clicked");
 	})
