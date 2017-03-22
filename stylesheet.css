@@ -73,7 +73,7 @@ input[type=text] {
 }
 
 select {
-    width: 10%;
+    width: 20%;
     padding: 16px 20px;
     border: none;
     border-radius: 4px;
