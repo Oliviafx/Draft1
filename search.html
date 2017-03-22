@@ -31,7 +31,8 @@
   	<option value="$$$$"> $$$$ </option>
   </select>
   <p/>
-  <input type="submit" onclick='submit()'>
+  <input type="button" id="submitbutton"> 
+  <label for="submitbutton"> Submit! </label>
 </form>
 </center>
 <p id="demos"></p>
@@ -76,7 +77,7 @@ function submit(){
 -->
 
 <script type="text/javascript">
-	$("submit").click(function(){
+	$("submitbutton").click(function(){
 		document.write("submit clicked");
 	})
 
