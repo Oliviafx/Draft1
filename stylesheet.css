@@ -61,7 +61,7 @@ li a.active {
 }
 
 input[type=text] {
-    width: 100%;
+    width: 50%;
     box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 4px;
