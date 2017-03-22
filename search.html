@@ -37,6 +37,7 @@
 </form>
 </center>
 <p id="demos"></p>
+<p id="lel"></p>
 <p id="demo"></p>
 
 <script>
@@ -46,7 +47,9 @@ function check() {
 
 function submit(){
 	var y = document.getElementById("demos");
+	var z = document.getElementById("lel");
 	y.innerHTML = "we made it here.";
+	
 	if(check() == true){
 	y.innerHTML = "check is true";
 	var x = document.getElementById("demo");
