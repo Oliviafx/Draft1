@@ -41,8 +41,10 @@
 <p id="demo"></p>
 
 <script>
+var isChecked = false;
+
 function check() {
-	document.getElementById("location").checked;
+	isChecked = document.getElementById("location").checked;
 }
 
 function submit(){
@@ -50,8 +52,9 @@ function submit(){
 	var z = document.getElementById("lel");
 	y.innerHTML = "we made it here.";
 	
-	if(check() == true){
+	if(isChecked == true){
 	y.innerHTML = "check is true";
+	
 	var x = document.getElementById("demo");
 
 	function getLocation() {
