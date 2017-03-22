@@ -36,18 +36,19 @@
   <input type="submit" onclick="">
 </form>
 </center>
-
+<p id="demos"></p>
 <p id="demo"></p>
 
 <script>
 function check() {
 	document.getElementById("location").checked;
-
-
 }
 
 function submit(){
+	var y = document.getElementById("demos");
+	y.innerHTML = "we made it here.";
 	if(check() == true){
+	y.innerHTML = "check is true";
 	var x = document.getElementById("demo");
 
 	function getLocation() {
