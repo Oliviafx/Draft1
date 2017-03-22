@@ -32,7 +32,8 @@
   	<option value="$$$"> $$$ </option>
   	<option value="$$$$"> $$$$ </option>
   </select>
-
+  <p/>
+  <input type="submit" onclick="">
 </form>
 </center>
 
@@ -41,24 +42,28 @@
 <script>
 function check() {
 	document.getElementById("location").checked;
+
+
 }
 
-if(check() == true){
+function submit(){
+	if(check() == true){
 	var x = document.getElementById("demo");
 
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else { 
-        x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-}
+	function getLocation() {
+    	if (navigator.geolocation) {
+       	 navigator.geolocation.getCurrentPosition(showPosition);
+    	} else { 
+        	x.innerHTML = "Geolocation is not supported by this browser.";
+    	}
+	}
 
-function showPosition(position) {
-    x.innerHTML = "Latitude: " + position.coords.latitude + 
-    "<br>Longitude: " + position.coords.longitude;
-}
+	function showPosition(position) {
+   	 x.innerHTML = "Latitude: " + position.coords.latitude + 
+    	"<br>Longitude: " + position.coords.longitude;
+	}
 
+	}
 }
 
 </script>
