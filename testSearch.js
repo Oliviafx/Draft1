@@ -30,4 +30,4 @@ $("submitbutton").click(function(){
 		document.write("submit clicked");
 	})
 
-
+document.getElementById("submitbutton").addEventListener("click", someFunction, false);
