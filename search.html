@@ -3,14 +3,6 @@
 <head>
 <link rel="stylesheet" type="text/css" href="stylesheet.css">
 <title> Recommendations </title>
-<script type="text/javascript">
-$.ajaxSetup({
-    beforeSend: function(xhr) {
-        xhr.setRequestHeader('Authorization', 'Bearer rUkajLiHIMVFO3mx9jMTIY13XuM8GdVabuF1t37ew4di-l0XD1xhSZ-sKqf7ozxvYEC_WwH-Zn8JSOH73EVA_Jb2oIPDZz_IJ_D6ZE4KAb8nFc9wp6aUb-KDM77SWHYx');
-    }
-});
-
-</script>
 </head>
 <body>
 
@@ -39,7 +31,7 @@ $.ajaxSetup({
   	<option value="$$$$"> $$$$ </option>
   </select>
   <p/>
-  <button type="button" onclick="httpGet('https://api.yelp.com/v3/businesses/search?location=London')">Submit! </button> 
+  <button type="button" onclick="httpGet( "https://api.yelp.com/v3/businesses/search?location=London" ) ">Submit! </button> 
 </form>
 </center>
 
