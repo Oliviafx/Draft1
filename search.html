@@ -46,6 +46,10 @@ $.ajaxSetup({
 <p id="lel"></p>
 <p id="demo"></p>
 <p id="check1"></p>
+<p id="check2"></p>
+<p id="check3"></p>
+<p id="check4"></p>
+<p id="check5"></p>
 
 <script type="text/javascript">
 	
@@ -55,9 +59,13 @@ function maralago() {
 }
 
 function httpGet(theURL){
+	document.getElementById("check1").innerHTML = "checkpoint 1 made";
 	var xmlHttp = new XMLHttpRequest();
+	document.getElementById("check2").innerHTML = "ckpt 2 reached";
 	xmlHttp.setRequestHeader('Authorization', 'Bearer rUkajLiHIMVFO3mx9jMTIY13XuM8GdVabuF1t37ew4di-l0XD1xhSZ-sKqf7ozxvYEC_WwH-Zn8JSOH73EVA_Jb2oIPDZz_IJ_D6ZE4KAb8nFc9wp6aUb-KDM77SWHYx');
+	document.getElementById("check3").innerHTML = "ckpt 3 reached";
 	xmlHttp.onreadystatechange = function(){
+		document.getElementById("demo").innerHTML = "we made it here";
 		if(xmlHttp.readyState == 4 && xmlHttp.status == 200){
 			callback(xmlHttp.responseText);
 			document.getElementById("demos").innerHTML = "why am i using maralago";
