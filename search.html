@@ -57,8 +57,10 @@ function maralago() {
 function httpGet(theURL){
 	var xmlHttp = new XMLHttpRequest();
 	xmlHttp.onreadystatechange = function(){
-		if(xmlHttp.readyState == 4 && xmlHttp.status == 200)
+		if(xmlHttp.readyState == 4 && xmlHttp.status == 200){
 			callback(xmlHttp.responseText);
+			document.getElementById("demos").innerHTML = xmlHttp.responseText;
+		}
 	}
 	xmlHttp.open("GET", theURL, true);
 	xmlHttp.send(null);
