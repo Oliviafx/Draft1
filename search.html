@@ -39,43 +39,13 @@
 <p id="lel"></p>
 <p id="demo"></p>
 
-
-
-<!--
-<script>
-var isChecked = false;
-
-function check() {
-	isChecked = document.getElementById("location").checked;
-}
-
-function submit(){
-	var y = document.getElementById("demos");
-	var z = document.getElementById("lel");
-	y.innerHTML = "we made it here.";
+<script type="text/javascript">
 	
-	if(isChecked == true){
-	y.innerHTML = "check is true";
-	
-	var x = document.getElementById("demo");
-
-	function getLocation() {
-    	if (navigator.geolocation) {
-       	 navigator.geolocation.getCurrentPosition(showPosition);
-    	} else { 
-        	x.innerHTML = "Geolocation is not supported by this browser.";
-    	}
-	}
-
-	function showPosition(position) {
-   	 x.innerHTML = "Latitude: " + position.coords.latitude + 
-    	"<br>Longitude: " + position.coords.longitude;
-	}
-
-	}
+function maralago() {
+	document.getElementById("demos").innerHTML = "submitted! :D";
 }
 
 </script>
--->
+
 </body>
 </html>
