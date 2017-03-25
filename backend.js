@@ -1,6 +1,6 @@
 'use strict';
 
-const yelp = require('node-yelp-fusion');
+const yelp = require('yelp-fusion');
 const clientId = 'USLc4bO1jd_WNmHyMtyWeQ';
 const clientSecret = 'CgmeETa6k6WbF82MNxaRuBU0rbTuILsTRic8nBcN5brSZdyUddRWKg2AC0Zuud9D';
 
