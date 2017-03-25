@@ -59,7 +59,8 @@ function httpGet(theURL){
 	xmlHttp.onreadystatechange = function(){
 		if(xmlHttp.readyState == 4 && xmlHttp.status == 200){
 			callback(xmlHttp.responseText);
-			document.getElementById("demos").innerHTML = xmlHttp.responseText;
+			document.getElementById("demos").innerHTML = "why am i using maralago";
+			document.getElementById("lel").innerHTML = xmlHttp.responseText;
 		}
 	}
 	xmlHttp.open("GET", theURL, true);
