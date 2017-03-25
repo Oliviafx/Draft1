@@ -63,7 +63,8 @@ var HttpClient = function(){
 
 var clientSearchLocation = new HttpClient();
 client.get("https://api.yelp.com/v3/businesses/search?location=london", function(response){
-	document.getElementById("lel").innerHTML = response;
+	document.getElementById("lel").innerHTML = "just to make sure we actually get here";
+	document.getElementById("demo").innerHTML = response;
 });
 
 </script>
