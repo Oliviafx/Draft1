@@ -12,10 +12,14 @@ const token = yelp.accessToken(clientId, clientSecret).then(response => {
 
 const client = yelp.client(token);
 
-client.search("term=Biryani&location=New York")
-  .then(function(result){
-           res.json(result);
-        });
+client.search({
+  term:'Four Barrel Coffee',
+  location: 'san francisco, ca'
+}).then(response => {
+  console.log(response.jsonBody.businesses[0].name);
+}).catch(e => {
+  console.log(e);
+});
 /*
 //dont delete yet
 const clientId = 'USLc4bO1jd_WNmHyMtyWeQ';
