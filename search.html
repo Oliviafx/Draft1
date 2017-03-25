@@ -40,10 +40,15 @@
 <p id="check3"></p>
 <p id="check4"></p>
 <p id="check5"></p>
+<p id="check6"></p>
+<p id="check7"></p>
+<p id="xmlRS"></p>
+<p id="xmlstat"></p>
 <p id="demos"></p>
 <p id="lel"></p>
 <p id="demo"></p>
-
+<p id="mar"></p>
+<p id ="sent"></p>
 
 <script type="text/javascript">
 	
@@ -69,19 +74,23 @@ function httpGet(theURL){
 	
 	xmlHttp.onreadystatechange = function(){
 		document.getElementById("demo").innerHTML = "we made it here";
-		/*
+		document.getElementById("xmlRS").innerHTML = "ready state: " + xmlHttp.readyState;
+	    document.getElementById("xmlstat").innerHTML = "status: " + xmlHttp.status;
+
 		if(xmlHttp.readyState == 4 && xmlHttp.status == 200){
+			document.getElementById("demos").innerHTML = "checkpoint within if statement";
 			callback(xmlHttp.responseText);
-			document.getElementById("demos").innerHTML = "why am i using maralago";
+			document.getElementById("mar").innerHTML = "why am i using maralago";
 			document.getElementById("lel").innerHTML = xmlHttp.responseText;
 		}
-		*/
+		
 		
 	}
 
-
+	document.getElementById("check6").innerHTML = "we are about to send the request";
 	xmlHttp.send(null);
-	
+	document.getElementById("sent").innerHTML = "the request has been sent";
+	document.getElementById("check7").innerHTML = "at check7, status is: " + xmlHttp.status + " and we also have " + xmlHttp.statusText;
 }
 
 
