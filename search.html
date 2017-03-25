@@ -38,13 +38,18 @@
 <p id="demos"></p>
 <p id="lel"></p>
 <p id="demo"></p>
+<p id="check1"></p>
 
 <script type="text/javascript">
 	
 function maralago() {
 	document.getElementById("demos").innerHTML = "submitted! :D";
 
-
+	var clientSearchLocation = new HttpClient();
+client.get("https://api.yelp.com/v3/businesses/search?location=london", function(response){
+	document.getElementById("lel").innerHTML = "just to make sure we actually get here";
+	document.getElementById("demo").innerHTML = response;
+});
 
 
 
@@ -61,11 +66,7 @@ var HttpClient = function(){
 	}
 }
 
-var clientSearchLocation = new HttpClient();
-client.get("https://api.yelp.com/v3/businesses/search?location=london", function(response){
-	document.getElementById("lel").innerHTML = "just to make sure we actually get here";
-	document.getElementById("demo").innerHTML = response;
-});
+
 
 </script>
 
