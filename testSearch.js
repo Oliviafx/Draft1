@@ -6,9 +6,9 @@ $.ajaxSetup({
 
 
 $("submitbutton").click(function(){
-		document.write("submit clicked");
+		document.write("submit clicked click function");
 	})
 
-document.getElementById("submitbutton").addEventListener("click", function(){
-	document.write("submit clicked");
+document.getElementById("submitbutton").addEventListener("click", maralago(){
+	document.write("submit clicked in maralago");
 }, false);
