@@ -35,20 +35,7 @@
 </form>
 </center>
 
-<p id="check1"></p>
-<p id="check2"></p>
-<p id="check3"></p>
-<p id="check4"></p>
-<p id="check5"></p>
-<p id="check6"></p>
-<p id="check7"></p>
-<p id="xmlRS"></p>
-<p id="xmlstat"></p>
-<p id="demos"></p>
-<p id="lel"></p>
-<p id="demo"></p>
-<p id="mar"></p>
-<p id ="sent"></p>
+
 
 <script type="text/javascript">
 	
@@ -58,6 +45,7 @@ function maralago() {
 }
 
 function httpGet(theURL){
+	/*
 	document.getElementById("check1").innerHTML = "checkpoint 1 made";
 	theURL = "https://api.yelp.com/v3/businesses/" + theURL;
 	document.getElementById("check3").innerHTML = theURL;
@@ -92,7 +80,29 @@ function httpGet(theURL){
 	document.getElementById("sent").innerHTML = "the request has been sent";
 	document.getElementById("check7").innerHTML = "at check7, status is: " + xmlHttp.status + " and we also have " + xmlHttp.statusText;
 }
+*/
+'use strict';
 
+const yelp = require('yelp-fusion');
+const clientId = 'USLc4bO1jd_WNmHyMtyWeQ';
+const clientSecret = 'CgmeETa6k6WbF82MNxaRuBU0rbTuILsTRic8nBcN5brSZdyUddRWKg2AC0Zuud9D';
+
+var searchRequest = {
+  location: 'london'
+};
+
+yelp.accessToken(clientId, clientSecret).then(response => {
+  const client = yelp.client(response.jsonBody.access_token);
+
+  client.search(searchRequest).then(response => {
+    const firstResult = response.jsonBody.businesses[0];
+    const prettyJson = JSON.stringify(firstResult, null, 4);
+    console.log(prettyJson);
+    document.getElementById("demos").innerHTML = prettyJson;
+  });
+}).catch(e => {
+  console.log(e);
+});
 
 
 </script>
