@@ -39,7 +39,7 @@ $.ajaxSetup({
   	<option value="$$$$"> $$$$ </option>
   </select>
   <p/>
-  <button type="button" onclick="maralago()">Submit! </button> 
+  <button type="button" onclick="httpGet("https://api.yelp.com/v3/businesses/search?location=London")">Submit! </button> 
 </form>
 </center>
 <p id="demos"></p>
@@ -52,25 +52,16 @@ $.ajaxSetup({
 function maralago() {
 	document.getElementById("demos").innerHTML = "submitted! :D";
 
-	var clientSearchLocation = new HttpClient();
-	client.get("https://api.yelp.com/v3/businesses/search?location=london", function(response){
-	document.getElementById("lel").innerHTML = "just to make sure we actually get here";
-	document.getElementById("demo").innerHTML = response;
-});
-
-	document.getElementById("check1").innerHTML = "end of function reached";
-
 }
 
-
-var HttpClient = function(){
-	this.get = function(aURL, aCallback){
-		var anHttpRequest = new XMLHttpRequest();
-		anHttpRequest.onreadystatechange = function(){
-			if(anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
-				aCallback(anHttpRequest.responseText)
-		}
+function httpGet(theURL){
+	var xmlHttp = new XMLHttpRequest();
+	xmlHttp.onreadystatechange = function(){
+		if(xmlHttp.readyState == 4 && xmlHttp.status == 200)
+			callback(xmlHttp.responseText);
 	}
+	xmlHttp.open("GET", theURL, true);
+	xmlHttp.send(null);
 }
 
 
