@@ -9,6 +9,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "node-yelp-fusion": "^1.0.4",
     "yelp-fusion": "^1.0.3"
   }
 }
