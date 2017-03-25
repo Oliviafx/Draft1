@@ -10,5 +10,6 @@ $("submitbutton").click(function(){
 	})
 
 document.getElementById("submitbutton").addEventListener("click", maralago(){
-	document.write("submit clicked in maralago");
+	document.getElementById("demos").innerHTML = "submit clicked in maralago";
+
 }, false);
