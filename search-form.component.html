@@ -1,39 +1,42 @@
 <div class="container">
   <div [hidden]="submitted">
-    <h1>Hero Form</h1>
-    <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+    <h1>Search</h1>
+    <form (ngSubmit)="onSubmit()" #searchForm="ngForm">
       <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" class="form-control" id="name"
+        <label for="location">Location</label>
+        <input type="text" class="form-control" id="location"
                required
-               [(ngModel)]="model.name" name="name"
-               #name="ngModel">
-        <div [hidden]="name.valid || name.pristine"
+               [(ngModel)]="model.location" name="location"
+               #location="ngModel">
+        <div [hidden]="location.valid || location.pristine"
              class="alert alert-danger">
-          Name is required
+          Location is required
         </div>
       </div>
 
       <div class="form-group">
-        <label for="alterEgo">Alter Ego</label>
-        <input type="text" class="form-control" id="alterEgo"
-               [(ngModel)]="model.alterEgo" name="alterEgo">
+        <label for="radius">Radius</label>
+        <input type="text" class="form-control" id="radius"
+               [(ngModel)]="model.radius" name="radius">
+      </div>
+      
+      <div class="form-group">
+        <label for="other">Search: </label>
+        <input type="text" class="form-control" id="other"
+               [(ngModel)]="model.other" name="other">
       </div>
 
       <div class="form-group">
-        <label for="power">Hero Power</label>
-        <select class="form-control" id="power"
+        <label for="priceLevel">Price Level</label>
+        <select class="form-control" id="priceLevel"
                 required
-                [(ngModel)]="model.power" name="power"
-                #power="ngModel">
-          <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+                [(ngModel)]="model.priceLevel" name="priceLevel"
+                #priceLevel="ngModel">
+          <option *ngFor="let pl of priceLevel" [value]="pl">{{pl}}</option>
         </select>
-        <div [hidden]="power.valid || power.pristine" class="alert alert-danger">
-          Power is required
-        </div>
       </div>
 
-      <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Submit</button>
+      <button type="submit" class="btn btn-success" [disabled]="!searchForm.form.valid">Submit</button>
 
     </form>
   </div>
