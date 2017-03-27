@@ -6,6 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "engines": {
+    "node": "6.10.1"
+  },
   "author": "",
   "license": "MIT",
   "dependencies": {
@@ -20,8 +23,10 @@
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/platform-server": "^4.0.0",
     "@angular/router": "^4.0.0",
+    "body-parser": "^1.17.1",
     "ejs": "^2.5.6",
     "express": "^4.15.2",
+    "morgan": "^1.8.1",
     "node-yelp-fusion": "^1.0.4",
     "typescript": "^2.2.1",
     "yelp-fusion": "^1.0.3"
