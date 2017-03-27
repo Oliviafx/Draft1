@@ -8,7 +8,7 @@ import { Search }    from './search';
 })
 export class SearchFormComponent {
 
-  priceLevel = ['$', '$$',
+  prices = ['$', '$$',
             '$$$', '$$$$'];
 
   submitted = false;
