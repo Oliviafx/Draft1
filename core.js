@@ -1,3 +1,5 @@
+var scotchSearch = angular.module('scotchSearch', []);
+
 function mainController($scope, $http) {
     $scope.formData = {};
 
