@@ -20,6 +20,7 @@ var searchRequest = {
   location: 'london'
 };
 
+/*
 var searchTypeEnum = {
   SEARCH: "search",
   PHONE: "phone",
@@ -28,7 +29,7 @@ var searchTypeEnum = {
   REVIEWS: "reviews",
   AUTOCOMPLETE: "autocomplete"
 }
-
+*/
 
 yelp.accessToken(clientId, clientSecret).then(response => {
   const client = yelp.client(response.jsonBody.access_token);
