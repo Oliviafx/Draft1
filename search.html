@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<head>
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+	<title> Recommendations </title>
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-static-top" id = "NavBar">
+<ul>
+	<li><a href="index.html" class="button"> HOME </a></li>
+	<li><a href="search.html" class="button"> SEARCH </a></li>
+	<li><a href="search-form.component.html" class="button"> FORM </a></li>
+</ul>
+</div>
+
+<h1> Search for what you want: </h1>
+<center>
+<form>
+  <input type="text" name="search" placeholder="Search.." id="userinput">
+  <p/>
+  <p/>
+  <input type="checkbox" onchange="check()" id="location">
+  <label for="location">Use My Location </label>
+  <p/>
+  <select id="price levels" > 
+  	<option selected disabled>Price Levels</option>
+  	<option value="$"> $ </option>
+  	<option value="$$"> $$ </option>
+  	<option value="$$$"> $$$ </option>
+  	<option value="$$$$"> $$$$ </option>
+  </select>
+  <p/>
+
+  <button type="button" onclick="maralago()" ng-click="createSearch()"> Submit! </button> 
+
+</form>
+</center>
+
+<script type="text/javascript" src="backend.js"></script>
+
+
+<script type="text/javascript">
+	
+function maralago() {
+	document.getElementById("demos").innerHTML = "submitted! :D";
+	
+
+
+
+</script>
+
+</body>
+</html>
