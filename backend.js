@@ -15,8 +15,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 
-app.listen(8080);
-console.log('App listening on port 8080');
+
 
 var searchRequest = {
   location: 'london'
@@ -24,9 +23,13 @@ var searchRequest = {
 
 
 app.post('/search', upload.array(), function(req, res){
+	res.send(req.body);
 	console.log(req.body);
 });
 
+
+app.listen(8080);
+console.log('App listening on port 8080');
 
 /*
 yelp.accessToken(clientId, clientSecret).then(response => {
