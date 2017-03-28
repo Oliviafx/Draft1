@@ -32,19 +32,26 @@
   </select>
   <p/>
 
-  <button type="button" onclick="maralago()" ng-click="createSearch()"> Submit! </button> 
+  <button type="button" id="submitbutton""> Submit! </button> 
 
 </form>
 </center>
 
+<p id="textresults"></p>
 
 
 <script type="text/javascript">
-	
-function maralago() {
-	document.getElementById("demos").innerHTML = "submitted! :D";
-	
+var request = require('request');
 
+$(function(){
+	$('submitbutton').on('click', function(){
+		var parameters= {search: $('userinput').val()};
+		$.get('/search', parameters, function(data){
+			$('textresults').html(data);
+		});
+	});
+
+} );
 
 
 </script>
