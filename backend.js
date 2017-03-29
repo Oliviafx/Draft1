@@ -4,6 +4,7 @@ const yelp = require('yelp-fusion');
 const express = require('express');
 const bodyParser = require('body-parser');
 const multer = require('multer');
+const path = require('path');
 
 const clientId = 'USLc4bO1jd_WNmHyMtyWeQ';
 const clientSecret = 'CgmeETa6k6WbF82MNxaRuBU0rbTuILsTRic8nBcN5brSZdyUddRWKg2AC0Zuud9D';
@@ -22,6 +23,13 @@ var searchRequest = {
   location: 'london'
 };
 
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname + 'index.html'));
+});
+
+app.get('/search', function (req, res) {
+  res.sendFile(path.join(__dirname + 'search.html'));
+});
 
 app.post('/search', upload.array(), function(req, res){
 	res.send(req.body);
