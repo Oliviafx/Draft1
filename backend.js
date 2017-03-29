@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 var htmlSource = fs.readFileSync("search.html", "utf8");
-
+var temp;
 
 app.post('/search', upload.array(), function(req, res){
 
@@ -29,7 +29,9 @@ yelp.accessToken(clientId, clientSecret).then(response => {
   	const client = yelp.client(response.jsonBody.access_token);
  	client.search(req.body).then(response => {
    	 const firstResult = response.jsonBody.businesses[0];
+   	 console.log(firstResult);
    	 const prettyJson = JSON.stringify(firstResult, null, 4);
+   	 temp = prettyJson;
      console.log(prettyJson);
      
 
@@ -37,7 +39,7 @@ yelp.accessToken(clientId, clientSecret).then(response => {
 }).catch(e => {
   console.log(e);
 });
-	res.json(prettyJson);
+	res.json(temp);
 });
 
 
