@@ -5,8 +5,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const multer = require('multer');
 const path = require('path');
-const fs = require('fs');
-const jsdom = require('jsdom');
+//const fs = require('fs');
 
 const clientId = 'USLc4bO1jd_WNmHyMtyWeQ';
 const clientSecret = 'CgmeETa6k6WbF82MNxaRuBU0rbTuILsTRic8nBcN5brSZdyUddRWKg2AC0Zuud9D';
@@ -20,11 +19,8 @@ app.use(express.static(__dirname));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-var htmlSource = fs.readFileSync("search.html", "utf8");
-
 
 app.post('/search', upload.array(), function(req, res){
-
 	console.log(req.body);
 
 yelp.accessToken(clientId, clientSecret).then(response => {
@@ -34,7 +30,6 @@ yelp.accessToken(clientId, clientSecret).then(response => {
    	 const prettyJson = JSON.stringify(firstResult, null, 4);
      console.log(prettyJson);
      
-
   });
 }).catch(e => {
   console.log(e);
