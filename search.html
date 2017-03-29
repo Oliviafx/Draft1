@@ -61,9 +61,9 @@
 //data should be JSON
 function process_results(data){
 	var obj = JSON.parse(data);
-	document.getElementById("check2").innerHTML = "name " + obj.name;
-	document.getElementById("check3").innerHTML = "rating " + obj.rating;
-	document.getElementById("check4").innerHTML = "phone " + obj.phone;
+	document.getElementById("check2").innerHTML = "name: " + obj.name;
+	document.getElementById("check3").innerHTML = "rating: " + obj.rating;
+	document.getElementById("check4").innerHTML = "phone: " + obj.phone;
 }
 
 </script>
