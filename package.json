@@ -35,7 +35,6 @@
     "rxjs": "^5.2.0",
     "typescript": "^2.2.1",
     "yelp-fusion": "^1.0.3",
-    "zone.js": "^0.8.5",
-    "heroku-buildpack-nodejs": "https://github.com/Oliviafx/heroku-buildpack-nodejs"
+    "zone.js": "^0.8.5"
   }
 }
