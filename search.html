@@ -32,22 +32,6 @@
   </select>
   <p/>
   <input type="submit" class="button" value="Submit">
-<!--
-  <input type="checkbox" onchange="check()" id="location">
-  <label for="location">Use My Location </label>
-  <p/>
-  <select id="price levels" > 
-  	<option selected disabled>Price Levels</option>
-  	<option value="$"> $ </option>
-  	<option value="$$"> $$ </option>
-  	<option value="$$$"> $$$ </option>
-  	<option value="$$$$"> $$$$ </option>
-  </select>
-  <p/>
-
-  <button type="button" id="submitbutton""> Submit! </button> 
-
--->
 </form>
 </center>
 <p id="check1"></p>
@@ -74,40 +58,6 @@
 </script>
 
 
-<script type="text/javascript">
-/*
-var request = require('request');
-
-$(function(){
-	
-	$('submitbutton').on('keyup', function(e){
-		document.getElementById("check1").innerHTML = parameters;
-		if(e.keyCode === 13){
-		var parameters= {location: $('input[type=text]userinput').val()};
-		document.getElementById("textresults").innerHTML = parameters;
-		$.post('/search', parameters, function(data){ 
-			document.getElementById("check2").innerHTML = data ;
-		});
-		};
-	});
-	
-	
-
-} );
-
-
-$("input")
-		.keyup(function(){
-			var value = $(this).val();
-			alert("value is " + value );
-			var parameters = {"location": value};
-			$.get("/search", parameters, function(data){
-				alert( "Data Loaded: " + data );
-			});
-		});
-
-*/
-</script>
 
 </body>
 </html>
