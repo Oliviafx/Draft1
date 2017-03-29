@@ -34,12 +34,9 @@
   <input type="submit" class="button" value="Submit">
 </form>
 </center>
-
 <p id="check1"></p>
 <p id="textresults"></p>
-<p id="check2"></p>
-<p id="check3"></p>
-<p id="check4"></p>
+<p id="check1"></p>
 <h2></h2>
 
 <script type="text/javascript">
@@ -50,21 +47,21 @@
        	type: 'POST',
        	url: "/search",
         success : function (response) {
-           // $('#textresults').html(response);
-            var data = response;
-            process_results(data);
+            console.log("The server says: " + response);
+            $('#testresults').html(response);
         }
     });
     return false;
 });
 
-//data should be JSON
+
 function process_results(data){
 	var obj = JSON.parse(data);
 	document.getElementById("check2").innerHTML = "name: " + obj.name;
 	document.getElementById("check3").innerHTML = "rating: " + obj.rating;
 	document.getElementById("check4").innerHTML = "phone: " + obj.phone;
 }
+
 
 </script>
 
