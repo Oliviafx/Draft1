@@ -14,6 +14,8 @@ const clientSecret = 'CgmeETa6k6WbF82MNxaRuBU0rbTuILsTRic8nBcN5brSZdyUddRWKg2AC0
 var app = express();
 var upload = multer();
 
+app.set('port', (process.env.PORT || 8080));
+
 app.use(express.static(__dirname));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
