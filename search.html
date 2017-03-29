@@ -2,6 +2,8 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script> 
+
 <title> Recommendations </title>
 <script type="text/javascript" src="backend.js"></script>
 </head>
@@ -16,10 +18,21 @@
 
 <h1> Search for what you want: </h1>
 <center>
-<form>
-  <input type="text" name="search" placeholder="Search.." id="userinput">
+<form id="searchform" >
+  <input type="text" name="location" placeholder="Search.." id="userinput">
   <p/>
   <p/>
+ <p/>
+  <select name="price" id="price levels" > 
+  	<option disabled selected value> Price Levels</option>
+  	<option value="1" > $ </option>
+  	<option value="2"> $$ </option>
+  	<option value="3"> $$$ </option>
+  	<option value="4"> $$$$ </option>
+  </select>
+  <p/>
+  <input type="submit" class="button" value="Submit">
+<!--
   <input type="checkbox" onchange="check()" id="location">
   <label for="location">Use My Location </label>
   <p/>
@@ -34,26 +47,66 @@
 
   <button type="button" id="submitbutton""> Submit! </button> 
 
+-->
 </form>
 </center>
-
+<p id="check1"></p>
 <p id="textresults"></p>
+<p id="check1"></p>
 
 
 <script type="text/javascript">
+
+	$('#searchform').submit(function(){
+    $.ajax({
+    	data: $(this).serialize(),
+       	type: 'POST',
+       	url: "/search",
+        success : function (response) {
+            console.log("The server says: " + response);
+            $('#testresults').html(response);
+        }
+    });
+    return false;
+});
+
+
+</script>
+
+
+<script type="text/javascript">
+/*
 var request = require('request');
 
 $(function(){
-	$('submitbutton').on('click', function(){
-		var parameters= {search: $('userinput').val()};
-		$.get('/search', parameters, function(data){
-			$('textresults').html(data);
+	
+	$('submitbutton').on('keyup', function(e){
+		document.getElementById("check1").innerHTML = parameters;
+		if(e.keyCode === 13){
+		var parameters= {location: $('input[type=text]userinput').val()};
+		document.getElementById("textresults").innerHTML = parameters;
+		$.post('/search', parameters, function(data){ 
+			document.getElementById("check2").innerHTML = data ;
 		});
+		};
 	});
+	
+	
 
 } );
 
 
+$("input")
+		.keyup(function(){
+			var value = $(this).val();
+			alert("value is " + value );
+			var parameters = {"location": value};
+			$.get("/search", parameters, function(data){
+				alert( "Data Loaded: " + data );
+			});
+		});
+
+*/
 </script>
 
 </body>

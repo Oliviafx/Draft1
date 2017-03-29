@@ -12,43 +12,34 @@ const clientSecret = 'CgmeETa6k6WbF82MNxaRuBU0rbTuILsTRic8nBcN5brSZdyUddRWKg2AC0
 var app = express();
 var upload = multer();
 
-app.use(express.static('public'));
+app.use(express.static(__dirname));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-
-
-
-var searchRequest = {
-  location: 'london'
-};
-
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname + 'index.html'));
-});
-
-app.get('/search', function (req, res) {
-  res.sendFile(path.join(__dirname + 'search.html'));
-});
+//var htmlSource = fs.readFileSync();
 
 app.post('/search', upload.array(), function(req, res){
-	res.send(req.body);
+
 	console.log(req.body);
+
+	yelp.accessToken(clientId, clientSecret).then(response => {
+  const client = yelp.client(response.jsonBody.access_token);
+  client.search(req.body).then(response => {
+    const firstResult = response.jsonBody.businesses[0];
+    const prettyJson = JSON.stringify(firstResult, null, 4);
+    console.log(prettyJson);
+    document.getElementById("textresults").innerHTML = prettyJson;
+    res.writeHead(prettyJson, {'Content-Type': 'text/html'});
+  });
+}).catch(e => {
+  console.log(e);
+});
+
 });
 
 
 app.listen(8080);
 console.log('App listening on port 8080');
 
-/*
-yelp.accessToken(clientId, clientSecret).then(response => {
-  const client = yelp.client(response.jsonBody.access_token);
-  client.search(searchRequest).then(response => {
-    const firstResult = response.jsonBody.businesses[0];
-    const prettyJson = JSON.stringify(firstResult, null, 4);
-    console.log(prettyJson);
-  });
-}).catch(e => {
-  console.log(e);
-});
-*/
+
+
