@@ -36,6 +36,6 @@
     "typescript": "^2.2.1",
     "yelp-fusion": "^1.0.3",
     "zone.js": "^0.8.5",
-    "heroku-buildpack-nodejs": "Oliviafx/heroku-buildpack-nodejs"
+    "heroku-buildpack-nodejs": "https://github.com/Oliviafx/heroku-buildpack-nodejs"
   }
 }
