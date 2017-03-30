@@ -13,7 +13,7 @@ const clientSecret = 'CgmeETa6k6WbF82MNxaRuBU0rbTuILsTRic8nBcN5brSZdyUddRWKg2AC0
 
 var app = express();
 var upload = multer();
-
+app.set('port', (process.env.PORT || 8080));
 app.use(express.static(__dirname));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -42,10 +42,12 @@ yelp.accessToken(clientId, clientSecret).then(response => {
 	res.json(temp);
 });
 
+app.listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
+});
 
-
-app.listen(8080);
-console.log('App listening on port 8080');
+//app.listen(8080);
+//console.log('App listening on port 8080');
 
 
 
