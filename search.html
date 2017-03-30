@@ -18,7 +18,7 @@
 
 <h1> Search for what you want: </h1>
 <center>
-<form id="searchform" >
+<form id="searchform" method="POST">
   <input type="text" name="location" placeholder="Search.." id="userinput">
   <p/>
   <p/>
@@ -35,12 +35,15 @@
 </form>
 </center>
 
+<div id="results">
 <p id="check1"></p>
 <p id="textresults"></p>
+<img id="image" style="width:304px;height:228px;">
 <p id="check2"></p>
 <p id="check3"></p>
 <p id="check4"></p>
 <h2></h2>
+</div>
 
 <script type="text/javascript">
 
@@ -64,6 +67,7 @@ function process_results(data){
 	document.getElementById("check2").innerHTML = "name " + obj.name;
 	document.getElementById("check3").innerHTML = "rating " + obj.rating;
 	document.getElementById("check4").innerHTML = "phone " + obj.phone;
+  document.getElementById("image").src = obj.image_url;
 }
 
 </script>
