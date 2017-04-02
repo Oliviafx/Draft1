@@ -30,7 +30,7 @@ if (typeof localStorage === "undefined" || localStorage === null) {
   localStorage = new LocalStorage('./scratch');
   console.log("we need this");
 }
-
+/*
 heroku.post('/search').then(app => {
 console.log(req.body);
 
@@ -61,8 +61,8 @@ yelp.accessToken(clientId, clientSecret).then(response => {
   	ls.set("rating", obj.rating);
 
 });
+*/
 
-/*
 app.post('/search', upload.array(), function(req, res){
 
 	console.log(req.body);
@@ -91,7 +91,7 @@ yelp.accessToken(clientId, clientSecret).then(response => {
 });
 	res.json(temp);
 });
-*/
+
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
