@@ -35,17 +35,21 @@
 </form>
 </center>
 
+<div id = "map"></div>
+
 <div id="results">
 <p id="check1"></p>
 <p id="textresults"></p>
-<img id="image" style="width:304px;height:228px;">
+<img id="image" style="width:100px;height:100px;">
+<img id="rating">
 <p id="check2"></p>
-<p id="check3"></p>
 <p id="check4"></p>
 <h2></h2>
 </div>
 
+
 <script type="text/javascript">
+var location = {lat: -25.363, lng: 131.044};
 
 	$('#searchform').submit(function(){
     $.ajax({
@@ -53,7 +57,6 @@
        	type: 'POST',
        	url: "/search",
         success : function (response) {
-           // $('#textresults').html(response);
             var data = response;
             process_results(data);
         }
@@ -65,13 +68,65 @@
 function process_results(data){
 	var obj = JSON.parse(data);
 	document.getElementById("check2").innerHTML = "name " + obj.name;
-	document.getElementById("check3").innerHTML = "rating " + obj.rating;
+	get_img_src(obj.rating);
 	document.getElementById("check4").innerHTML = "phone " + obj.phone;
   document.getElementById("image").src = obj.image_url;
 }
 
-</script>
+function get_img_src(rating){
+  var src;
+  switch(rating){
+    case 0:
+      src = "/images/0.png";
+      break;
+    case 1:
+      src = "/images/1.png";
+      break;
+    case 1.5:
+      src = "/images/1_half.png";
+      break;
+    case 2:
+      src = "/images/2.png";
+      break;
+    case 2.5:
+      src = "/images/2_half.png";
+      break;
+    case 3:
+      src = "/images/3.png";
+      break;
+    case 3.5:
+      src = "/images/3_half.png";
+      break;
+    case 4:
+      src = "/images/4.png";
+      break;
+    case 4.5:
+      src = "images/4_half.png";
+      break;
+    case 5:
+      src = "/images/5.png";
+      break;
+  }
+  document.getElementById("rating").src = src;
+}
 
+
+function initMap() {
+  var uluru = {lat: -25.363, lng: 131.044};
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 4,
+    center: uluru
+  });
+  var marker = new google.maps.Marker({
+    position: uluru,
+    map: map
+  });
+}
+
+</script>
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzU_JDzOxBsPCvWRWlq6fsd7PvVBYdmpw&callback=initMap">
+    </script>
 
 
 </body>
