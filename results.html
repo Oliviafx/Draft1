@@ -3,17 +3,64 @@
 <head>
 <link rel="stylesheet" type="text/css" href="stylesheet.css">
 <title> Recommendations </title>
+<style type="text/css">
+	
+	#map {
+        height: 400px;
+        width: 100%;
+       }
+
+</style>
 </head>
 <div class="navbar navbar-default navbar-static-top" id = "NavBar">
 <ul>
 	<li><a href="index.html" class="button"> HOME </a></li>
 	<li><a href="search.html" class="button"> SEARCH </a></li>
+	<li><a href="map.html" class="button"> MAP </a></li>
+	<li><a href="results.html" class="button"> RESULTS </a></li>
 </ul>
 </div>
 <body>
 <h1> Results </h1>
 
-<h2> </h2>
+ <div id="map"></div>
+    <script>
+     // var myLoc = new google.maps.LatLng(localStorage.getItem("lat"), localStorage.getItem("long"));
+      //var myLoc = new google.maps.LatLng(-25.363, 131.044);
+      function initMap() {
+      	var latitude = parseFloat(localStorage.getItem("lat"));
+      	var longitude = parseFloat(localStorage.getItem("long"));
+        //var uluru = myLoc;
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 15,
+          center: myLoc
+        });
+        var marker = new google.maps.Marker({
+          position: myLoc,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzU_JDzOxBsPCvWRWlq6fsd7PvVBYdmpw&callback=initMap">
+    </script>
+
+<img id="bus_img" style="width:100px;height:100px;">
+<img id="rating">
+<p id="name"></p>
+<p id="lat"></p>
+<p id="long"></p>
+
+<script type="text/javascript">
+	document.getElementById("bus_img").src = localStorage.getItem("bus_img");
+	document.getElementById("rating").src = localStorage.getItem("rating_src");
+	document.getElementById("name").innerHTML = localStorage.getItem("name");
+	document.getElementById("lat").innerHTML = "latitude: " + localStorage.getItem("lat");
+	document.getElementById("long").innerHTML = "longitude: " + localStorage.getItem("long");
+
+
+
+</script>
 
 </body>
 </html>

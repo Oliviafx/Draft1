@@ -11,9 +11,10 @@
 
 <div class="navbar navbar-default navbar-static-top" id = "NavBar">
 <ul>
-	<li><a href="index.html" class="button"> HOME </a></li>
-	<li><a href="search.html" class="button"> SEARCH </a></li>
+  <li><a href="index.html" class="button"> HOME </a></li>
+  <li><a href="search.html" class="button"> SEARCH </a></li>
   <li><a href="map.html" class="button"> MAP </a></li>
+  <li><a href="results.html" class="button"> RESULTS </a></li>
 </ul>
 </div>
 
@@ -50,7 +51,6 @@
 
 
 <script type="text/javascript">
-var location = {lat: -25.363, lng: 131.044};
 
 	$('#searchform').submit(function(){
     $.ajax({
@@ -69,9 +69,14 @@ var location = {lat: -25.363, lng: 131.044};
 function process_results(data){
 	var obj = JSON.parse(data);
 	document.getElementById("check2").innerHTML = "name " + obj.name;
+  localStorage.setItem("name", obj.name);
 	get_img_src(obj.rating);
 	document.getElementById("check4").innerHTML = "phone " + obj.phone;
+  localStorage.setItem("phone", obj.phone);
   document.getElementById("image").src = obj.image_url;
+  localStorage.setItem("bus_img", obj.image_url);
+  localStorage.setItem("lat", obj.coordinates.latitude);
+  localStorage.setItem("long", obj.coordinates.longitude);
 }
 
 function get_img_src(rating){
@@ -109,9 +114,10 @@ function get_img_src(rating){
       break;
   }
   document.getElementById("rating").src = src;
+  localStorage.setItem("rating_src", src);
+
 }
-
-
+/*
 function initMap() {
   var uluru = {lat: -25.363, lng: 131.044};
   var map = new google.maps.Map(document.getElementById('map'), {
@@ -123,13 +129,7 @@ function initMap() {
     map: map
   });
 }
-
+*/
 </script>
-<!--
-<script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzU_JDzOxBsPCvWRWlq6fsd7PvVBYdmpw&callback=initMap">
-    </script>
--->
-
 </body>
 </html>
