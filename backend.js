@@ -9,6 +9,8 @@ const fs = require('fs');
 const jsdom = require('jsdom');
 const localStorage = require('node-localstorage');
 var ls = require('local-storage');
+const Heroku = require('heroku-client');
+const heroku = new Heroku({ token: process.env.HEROKU_API_TOKEN });
 
 const clientId = 'USLc4bO1jd_WNmHyMtyWeQ';
 const clientSecret = 'CgmeETa6k6WbF82MNxaRuBU0rbTuILsTRic8nBcN5brSZdyUddRWKg2AC0Zuud9D';
@@ -28,6 +30,37 @@ if (typeof localStorage === "undefined" || localStorage === null) {
   localStorage = new LocalStorage('./scratch');
   console.log("we need this");
 }
+
+heroku.post('/search').then(app => {
+console.log(req.body);
+
+yelp.accessToken(clientId, clientSecret).then(response => {
+  	const client = yelp.client(response.jsonBody.access_token);
+ 	client.search(req.body).then(response => {
+   	 const firstResult = response.jsonBody.businesses[0];
+   	 console.log(firstResult);
+   	 const prettyJson = JSON.stringify(firstResult, null, 4);
+   	 temp = prettyJson;
+     console.log(prettyJson);
+     
+
+     var obj = JSON.parse(prettyJson);
+     /*
+     localStorage.setItem("name", obj.name);
+     localStorage.setItem("phone", obj.phone);
+     localStorage.setItem("bus_img", obj.image_url);
+  	localStorage.setItem("lat", obj.coordinates.latitude);
+  	localStorage.setItem("long", obj.coordinates.longitude);
+  	localStorage.setItem("rating", obj.rating);
+  	*/
+  	ls.set("name", obj.name);
+     ls.set("phone", obj.phone);
+     ls.set("bus_img", obj.image_url);
+  	ls.set("lat", obj.coordinates.latitude);
+  	ls.set("long", obj.coordinates.longitude);
+  	ls.set("rating", obj.rating);
+	
+});
 
 app.post('/search', upload.array(), function(req, res){
 
