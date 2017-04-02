@@ -20,7 +20,7 @@
 
 <h1> Search for what you want: </h1>
 <center>
-<form id="searchform" action="/search" method="POST">
+<form id="searchform">
   <input type="text" name="location" placeholder="Search.." id="userinput">
   <p/>
   <p/>
@@ -33,7 +33,7 @@
   	<option value="4"> $$$$ </option>
   </select>
   <p/>
-  <input type="submit" class="button" value="Submit">
+  <input name="sbutton" onclick="location.href='results.html';" type="submit" class="button" value="Submit">
 </form>
 </center>
 
@@ -52,15 +52,20 @@
 
 <script type="text/javascript">
 
-	$('#searchform').submit(function(){
+	$('#searchform').submit(function(e){
+    e.preventDefault();
     $.ajax({
-    	data: $(this).serialize(),
+    	data: $('#searchform').serialize(),
        	type: 'POST',
        	url: "/search",
         success : function (response) {
             var data = response;
             process_results(data);
-        }
+            return data;
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            console.log(textStatus + " : " + errorThrown);
+      }
     });
     return false;
 });
@@ -117,19 +122,7 @@ function get_img_src(rating){
   localStorage.setItem("rating_src", src);
 
 }
-/*
-function initMap() {
-  var uluru = {lat: -25.363, lng: 131.044};
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 4,
-    center: uluru
-  });
-  var marker = new google.maps.Marker({
-    position: uluru,
-    map: map
-  });
-}
-*/
+
 </script>
 </body>
 </html>
