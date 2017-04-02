@@ -56,7 +56,7 @@
     e.preventDefault();
     $.ajax({
     	data: $('#searchform').serialize(),
-       	type: 'GET',
+       	type: 'POST',
        	url: "/search",
         success : function (response) {
             var data = response;

@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 var htmlSource = fs.readFileSync("search.html", "utf8");
 var temp;
 
-app.get('/search', upload.array(), function(req, res){
+app.post('/search', upload.array(), function(req, res){
 
 	console.log(req.body);
 
