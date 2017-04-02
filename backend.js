@@ -59,9 +59,10 @@ yelp.accessToken(clientId, clientSecret).then(response => {
   	ls.set("lat", obj.coordinates.latitude);
   	ls.set("long", obj.coordinates.longitude);
   	ls.set("rating", obj.rating);
-	
+
 });
 
+/*
 app.post('/search', upload.array(), function(req, res){
 
 	console.log(req.body);
@@ -77,14 +78,7 @@ yelp.accessToken(clientId, clientSecret).then(response => {
      
 
      var obj = JSON.parse(prettyJson);
-     /*
-     localStorage.setItem("name", obj.name);
-     localStorage.setItem("phone", obj.phone);
-     localStorage.setItem("bus_img", obj.image_url);
-  	localStorage.setItem("lat", obj.coordinates.latitude);
-  	localStorage.setItem("long", obj.coordinates.longitude);
-  	localStorage.setItem("rating", obj.rating);
-  	*/
+
   	ls.set("name", obj.name);
      ls.set("phone", obj.phone);
      ls.set("bus_img", obj.image_url);
@@ -97,13 +91,12 @@ yelp.accessToken(clientId, clientSecret).then(response => {
 });
 	res.json(temp);
 });
+*/
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
 
-//app.listen(8080);
-//console.log('App listening on port 8080');
 
 
 
