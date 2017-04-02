@@ -30,13 +30,51 @@
 <p id="long"></p>
 
 <script type="text/javascript">
+	get_img_src(parseFloat(localStorage.getItem("rating")));
 	document.getElementById("bus_img").src = localStorage.getItem("bus_img");
 	document.getElementById("rating").src = localStorage.getItem("rating_src");
 	document.getElementById("name").innerHTML = localStorage.getItem("name");
 	document.getElementById("lat").innerHTML = "latitude: " + localStorage.getItem("lat");
 	document.getElementById("long").innerHTML = "longitude: " + localStorage.getItem("long");
 
+function get_img_src(rating){
+  var src;
+  switch(rating){
+    case 0:
+      src = "/images/0.png";
+      break;
+    case 1:
+      src = "/images/1.png";
+      break;
+    case 1.5:
+      src = "/images/1_half.png";
+      break;
+    case 2:
+      src = "/images/2.png";
+      break;
+    case 2.5:
+      src = "/images/2_half.png";
+      break;
+    case 3:
+      src = "/images/3.png";
+      break;
+    case 3.5:
+      src = "/images/3_half.png";
+      break;
+    case 4:
+      src = "/images/4.png";
+      break;
+    case 4.5:
+      src = "images/4_half.png";
+      break;
+    case 5:
+      src = "/images/5.png";
+      break;
+  }
+  document.getElementById("rating").src = src;
+  localStorage.setItem("rating_src", src);
 
+}
 
 </script>
 

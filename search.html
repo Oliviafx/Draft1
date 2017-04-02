@@ -20,7 +20,7 @@
 
 <h1> Search for what you want: </h1>
 <center>
-<form id="searchform">
+<form id="searchform" action="/search" method="POST">
   <input type="text" name="location" placeholder="Search.." id="userinput">
   <p/>
   <p/>
@@ -33,7 +33,7 @@
   	<option value="4"> $$$$ </option>
   </select>
   <p/>
-  <input name="sbutton" type="submit" class="button" value="Submit">
+  <input type="submit" class="button">
 </form>
 </center>
 
@@ -51,7 +51,7 @@
 
 
 <script type="text/javascript">
-
+/*
 	$('#searchform').submit(function(e){
     e.preventDefault();
     $.ajax({
@@ -83,6 +83,7 @@ function process_results(data){
   localStorage.setItem("lat", obj.coordinates.latitude);
   localStorage.setItem("long", obj.coordinates.longitude);
 }
+
 
 function get_img_src(rating){
   var src;
@@ -122,7 +123,7 @@ function get_img_src(rating){
   localStorage.setItem("rating_src", src);
 
 }
-
+*/
 </script>
 </body>
 </html>
