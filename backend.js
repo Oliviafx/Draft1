@@ -7,10 +7,10 @@ const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
 const jsdom = require('jsdom');
-const localStorage = require('node-localstorage');
+//const localStorage = require('node-localstorage');
 var ls = require('local-storage');
-const Heroku = require('heroku-client');
-const heroku = new Heroku({ token: process.env.HEROKU_API_TOKEN });
+//const Heroku = require('heroku-client');
+//const heroku = new Heroku({ token: process.env.HEROKU_API_TOKEN });
 
 const clientId = 'USLc4bO1jd_WNmHyMtyWeQ';
 const clientSecret = 'CgmeETa6k6WbF82MNxaRuBU0rbTuILsTRic8nBcN5brSZdyUddRWKg2AC0Zuud9D';
@@ -22,7 +22,7 @@ app.use(express.static(__dirname));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-var htmlSource = fs.readFileSync("search.html", "utf8");
+//var htmlSource = fs.readFileSync("search.html", "utf8");
 var temp;
 
 if (typeof localStorage === "undefined" || localStorage === null) {
@@ -52,7 +52,7 @@ yelp.accessToken(clientId, clientSecret).then(response => {
   	localStorage.setItem("lat", obj.coordinates.latitude);
   	localStorage.setItem("long", obj.coordinates.longitude);
   	localStorage.setItem("rating", obj.rating);
-  	*/
+  	
   	ls.set("name", obj.name);
      ls.set("phone", obj.phone);
      ls.set("bus_img", obj.image_url);
