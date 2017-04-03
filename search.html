@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script type="text/javascript" src="external.js"></script>
 <link rel="stylesheet" type="text/css" href="stylesheet.css">
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script> 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js">
+
+</script> 
 
 <title> Recommendations </title>
 <script type="text/javascript" src="backend.js"></script>
@@ -72,6 +75,7 @@
 
 //data should be JSON
 function process_results(data){
+  place_results(data);
   var obj = JSON.parse(data);
   document.getElementById("check2").innerHTML = "name " + obj.name;
   localStorage.setItem("name", obj.name);

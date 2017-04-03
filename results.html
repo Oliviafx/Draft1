@@ -2,6 +2,7 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script type="text/javascript" src="external.js"></script>
 <title> Recommendations </title>
 <style type="text/css">
 	
@@ -17,7 +18,7 @@
 	<li><a href="index.html" class="button"> HOME </a></li>
 	<li><a href="search.html" class="button"> SEARCH </a></li>
 	<li><a href="map.html" class="button"> MAP </a></li>
-	<li><a href="results.html" class="button"> RESULTS </a></li>
+	<li><a href="results.html" class="button" id="res"> RESULTS </a></li>
 </ul>
 </div>
 <body>
@@ -31,12 +32,17 @@
 
 <script type="text/javascript">
 
-	get_img_src(parseFloat(localStorage.getItem("rating")));
-	document.getElementById("bus_img").src = localStorage.getItem("bus_img");
-	document.getElementById("rating").src = localStorage.getItem("rating_src");
-	document.getElementById("name").innerHTML = localStorage.getItem("name");
-	document.getElementById("lat").innerHTML = "latitude: " + localStorage.getItem("lat");
-	document.getElementById("long").innerHTML = "longitude: " + localStorage.getItem("long");
+
+  //var obj = JSON.parse(get_results());
+  get_img_src(localStorage.getItem("rating_src"));
+
+  document.getElementById("bus_img").src = localStorage.getItem("bus_img");
+  document.getElementById("rating").src = localStorage.getItem("rating_src");
+  document.getElementById("name").innerHTML = localStorage.getItem("name");
+  document.getElementById("lat").innerHTML = "latitude: " + localStorage.getItem("lat");
+  document.getElementById("long").innerHTML = "longitude: " + localStorage.getItem("long");
+
+
 	
 
 
