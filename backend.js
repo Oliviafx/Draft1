@@ -42,7 +42,12 @@ yelp.accessToken(clientId, clientSecret).then(response => {
 	res.json(temp);
 });
 
-
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
+
+//app.listen(8080);
+//console.log('App listening on port 8080');
+
+
+

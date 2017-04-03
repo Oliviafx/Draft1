@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 <link rel="stylesheet" type="text/css" href="stylesheet.css">
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js">
-
-</script> 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script> 
 
 <title> Recommendations </title>
 <script type="text/javascript" src="backend.js"></script>
@@ -23,17 +20,17 @@
 
 <h1> Search for what you want: </h1>
 <center>
-<form id="searchform" method="POST" action="/search">
+<form id="searchform">
   <input type="text" name="location" placeholder="Search.." id="userinput">
   <p/>
   <p/>
  <p/>
   <select name="price" id="price levels" > 
-    <option disabled selected value> Price Levels</option>
-    <option value="1" > $ </option>
-    <option value="2"> $$ </option>
-    <option value="3"> $$$ </option>
-    <option value="4"> $$$$ </option>
+  	<option disabled selected value> Price Levels</option>
+  	<option value="1" > $ </option>
+  	<option value="2"> $$ </option>
+  	<option value="3"> $$$ </option>
+  	<option value="4"> $$$$ </option>
   </select>
   <p/>
   <input name="sbutton" type="submit" class="button" value="Submit">
@@ -55,16 +52,16 @@
 
 <script type="text/javascript">
 
-  $('#searchform').submit(function(e){
+	$('#searchform').submit(function(e){
     e.preventDefault();
     $.ajax({
-      data: $('#searchform').serialize(),
-        type: 'POST',
-        url: "/search",
+    	data: $('#searchform').serialize(),
+       	type: 'POST',
+       	url: "/search",
         success : function (response) {
             var data = response;
             process_results(data);
-            return data;
+            //return data;
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
             console.log(textStatus + " : " + errorThrown);
@@ -75,12 +72,11 @@
 
 //data should be JSON
 function process_results(data){
-  place_results(data);
-  var obj = JSON.parse(data);
-  document.getElementById("check2").innerHTML = "name " + obj.name;
+	var obj = JSON.parse(data);
+	document.getElementById("check2").innerHTML = "name " + obj.name;
   localStorage.setItem("name", obj.name);
-  get_img_src(obj.rating);
-  document.getElementById("check4").innerHTML = "phone " + obj.phone;
+	get_img_src(obj.rating);
+	document.getElementById("check4").innerHTML = "phone " + obj.phone;
   localStorage.setItem("phone", obj.phone);
   document.getElementById("image").src = obj.image_url;
   localStorage.setItem("bus_img", obj.image_url);
