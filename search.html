@@ -5,7 +5,7 @@
 <style>
        #map {
         height: 400px;
-        width: 100%;
+        width: 75%;
        }
     </style>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script> 
@@ -77,7 +77,8 @@
 
 
 <script type="text/javascript">
-//var json = $('#searchform').serialize();
+var info;
+
 function process_data(){
   var location = document.getElementById("userinput").value;
   var price = document.getElementById("price_levels").value;
@@ -133,11 +134,12 @@ function send_request(loc, pl){
 */
 
   function initMap() {
-       //var uluru = {lat: -25.363, lng: 131.044};
-       var latitude = parseFloat(localStorage.getItem("lat"));
-        var longitude = parseFloat(localStorage.getItem("long"));
-        //var uluru =new google.maps.LatLng(-25.363, 131.044);
+
+       var latitude = parseFloat(info.coordinates.latitude);
+        var longitude = parseFloat(info.coordinates.longitude);
+
         var uluru =new google.maps.LatLng(latitude, longitude);
+
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 18,
           center: uluru
@@ -151,15 +153,12 @@ function send_request(loc, pl){
 //data should be JSON
 function process_results(data){
 	var obj = JSON.parse(data);
+  info = JSON.parse(data);
 	document.getElementById("check2").innerHTML = "name " + obj.name;
-  //localStorage.setItem("name", obj.name);
 	get_img_src(obj.rating);
 	document.getElementById("check4").innerHTML = "phone " + obj.phone;
-  //localStorage.setItem("phone", obj.phone);
   document.getElementById("image").src = obj.image_url;
-  //localStorage.setItem("bus_img", obj.image_url);
-  //localStorage.setItem("lat", obj.coordinates.latitude);
-  //localStorage.setItem("long", obj.coordinates.longitude);
+
 }
 
 function get_img_src(rating){
@@ -206,5 +205,7 @@ function get_img_src(rating){
 <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzU_JDzOxBsPCvWRWlq6fsd7PvVBYdmpw&callback=initMap">
     </script>
+
+
 </body>
 </html>
