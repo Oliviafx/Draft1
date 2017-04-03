@@ -40,16 +40,16 @@ yelp.accessToken(clientId, clientSecret).then(response => {
 
      var obj = JSON.parse(prettyJson);
 
-     cookies.set(name, obj.name)
 
-     /*
+
+     
   	ls.set("name", obj.name);
      ls.set("phone", obj.phone);
      ls.set("bus_img", obj.image_url);
   	ls.set("lat", obj.coordinates.latitude);
   	ls.set("long", obj.coordinates.longitude);
   	ls.set("rating", obj.rating);
-	*/
+	
   });
 }).catch(e => {
   console.log(e);

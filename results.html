@@ -30,18 +30,15 @@
 <p id="long"></p>
 
 <script type="text/javascript">
-/*
+
 	get_img_src(parseFloat(localStorage.getItem("rating")));
 	document.getElementById("bus_img").src = localStorage.getItem("bus_img");
 	document.getElementById("rating").src = localStorage.getItem("rating_src");
 	document.getElementById("name").innerHTML = localStorage.getItem("name");
 	document.getElementById("lat").innerHTML = "latitude: " + localStorage.getItem("lat");
 	document.getElementById("long").innerHTML = "longitude: " + localStorage.getItem("long");
-	*/
+	
 
-	var name = document.cookie.replace(/(?:(?:^|.*;\s*)name\s*\=\s*([^;]*).*$)|^.*$/, "$1");
-
-	document.getElementById("name").innerHTML = sessionStorage.getItem("name");
 
 
 function get_img_src(rating){
