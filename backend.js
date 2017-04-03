@@ -28,7 +28,7 @@ app.use(function(req, res, next) {
 var temp;
 
 
-app.post('/search.html', upload.array(), function(req, res){
+app.post('/', upload.array(), function(req, res){
 
 	console.log(req.body);
 
