@@ -51,9 +51,12 @@ yelp.accessToken(clientId, clientSecret).then(response => {
 
 */
 
-app.get('/search', function(req, res){
+app.get('/', function(req, res){
 
+  var price = parseInt(req.query.price);
+  /*
   var user_input_price = parseInt(req.query.price);
+
   var price = "";
   if(user_input_price === 1){
     price = 1;
@@ -65,7 +68,7 @@ app.get('/search', function(req, res){
     }
   }
   price = price.substr(0, price.length-1);
-
+*/
   const searchInfo = {
       location: req.query.location,
       price: price
@@ -85,7 +88,7 @@ yelp.accessToken(clientId, clientSecret).then(response => {
 }).catch(e => {
   console.log(e);
 });
-  res.json(temp);
+  //res.json(temp);
 });
 
 
