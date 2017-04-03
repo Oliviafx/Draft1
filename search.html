@@ -66,6 +66,7 @@
        	type: 'POST',
        	url: "https://guarded-taiga-83128.herokuapp.com/",
         success : function (response) {
+            console.log("SUCCESS!");
             var data = response;
             process_results(data);
             //return data;
