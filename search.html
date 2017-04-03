@@ -26,6 +26,7 @@
 
 <h1> Search for what you want: </h1>
 <center>
+<!--
 <form id="searchform" action="/" method="POST" target="foo">
   <input type="text" name="location" placeholder="Search.." id="userinput">
   <p/>
@@ -41,10 +42,28 @@
   <p/>
   <input type="submit" class="button" value="Submit">
 </form>
+-->
+<div id="panel">
+<input type="text" name="location" placeholder="location..." id="userinput">
+ <p/>
+  <p/>
+ <p/>
+ <select name="price" id="price_levels" > 
+    <option disabled selected value> Price Levels</option>
+    <option value="1" > $ </option>
+    <option value="2"> $$ </option>
+    <option value="3"> $$$ </option>
+    <option value="4"> $$$$ </option>
+  </select>
+<p/>
+  <button type="button" onclick="process_data()">Submit! </button>
+</div>
+
 </center>
 
 <div id = "map"></div>
-
+<p id="searchval"></p>
+<p id="priceval"></p>
 <div id="results">
 <p id="check1"></p>
 <p id="textresults"></p>
@@ -58,8 +77,40 @@
 
 
 <script type="text/javascript">
-var json = $('#searchform').serialize();
+//var json = $('#searchform').serialize();
+function process_data(){
+  var location = document.getElementById("userinput").value;
+  var price = document.getElementById("price_levels").value;
 
+  document.getElementById("searchval").innerHTML = document.getElementById("userinput").value;
+  document.getElementById("priceval").innerHTML = document.getElementById("price_levels").value;
+
+  send_request(location, price);
+}
+
+function send_request(loc, pl){
+   $.ajax({
+      url: 'https://guarded-taiga-83128.herokuapp.com/',
+      type: 'GET',
+      dataType:'json',
+      data:{
+        location: loc,
+        price: pl
+      },
+      success:function(response){
+        console.log("SUCCESS");
+        var data = response;
+        process_results(data);
+      },
+      error:function(XMLHttpRequest, textStatus, errorThrown) {
+            console.log(textStatus + " : " + errorThrown);
+      }
+   });
+}
+
+
+
+/*
 	$('#searchform').submit(function(e){
     e.preventDefault();
     $.ajax({
@@ -79,6 +130,7 @@ var json = $('#searchform').serialize();
     });
     return false;
 });
+*/
 
   function initMap() {
        //var uluru = {lat: -25.363, lng: 131.044};

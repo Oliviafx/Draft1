@@ -21,6 +21,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 var htmlSource = fs.readFileSync("search.html", "utf8");
 var temp;
 
+/*
 app.post('/', upload.array(), function(req, res){
 
 	console.log(req.body);
@@ -40,6 +41,44 @@ yelp.accessToken(clientId, clientSecret).then(response => {
   console.log(e);
 });
 	res.json(temp);
+});
+*/
+
+app.get('/', function(req, res){
+
+  var user_input_price = parseInt(req.query.price);
+  var price = "";
+  if(user_input_price === 1){
+    price = 1;
+  }
+  else{
+    while(user_input_price > 0){
+      price += user_input_price + ",";
+      user_input_price--;
+    }
+  }
+  price = price.substr(0, price.length-1);
+
+  const searchInfo = {
+      location: req.query.location,
+      price: price
+  };
+
+yelp.accessToken(clientId, clientSecret).then(response => {
+    const client = yelp.client(response.jsonBody.access_token);
+  
+  client.search(searchInfo).then(response => {
+     const firstResult = response.jsonBody.businesses[0];
+     console.log(firstResult);
+     const prettyJson = JSON.stringify(firstResult, null, 4);
+     temp = prettyJson;
+     console.log(prettyJson);
+     res.send(temp);
+  });
+}).catch(e => {
+  console.log(e);
+});
+  res.json(temp);
 });
 
 app.listen(app.get('port'), function() {
