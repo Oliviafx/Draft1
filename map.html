@@ -25,8 +25,10 @@
        //var uluru = {lat: -25.363, lng: 131.044};
        var latitude = parseFloat(localStorage.getItem("lat"));
         var longitude = parseFloat(localStorage.getItem("long"));
+
         //var uluru =new google.maps.LatLng(-25.363, 131.044);
-        var uluru =new google.maps.LatLng(latitude, longitude);
+       // var uluru =new google.maps.LatLng(latitude, longitude);
+       var uluru =new google.maps.LatLng(lat, long);
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 18,
           center: uluru

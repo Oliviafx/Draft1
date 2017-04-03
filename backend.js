@@ -40,12 +40,21 @@ yelp.accessToken(clientId, clientSecret).then(response => {
 
      var obj = JSON.parse(prettyJson);
 
+     global.name = obj.name;
+     global.phone = obj.phone;
+     global.img_url = obj.image_url;
+     global.lat = obj.coordinates.latitude;
+     global.long = obj.coordinates.longitude;
+     global.rating = obj.rating;
+
+     /*
   	ls.set("name", obj.name);
      ls.set("phone", obj.phone);
      ls.set("bus_img", obj.image_url);
   	ls.set("lat", obj.coordinates.latitude);
   	ls.set("long", obj.coordinates.longitude);
   	ls.set("rating", obj.rating);
+	*/
   });
 }).catch(e => {
   console.log(e);

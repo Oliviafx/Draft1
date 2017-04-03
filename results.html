@@ -30,12 +30,21 @@
 <p id="long"></p>
 
 <script type="text/javascript">
+/*
 	get_img_src(parseFloat(localStorage.getItem("rating")));
 	document.getElementById("bus_img").src = localStorage.getItem("bus_img");
 	document.getElementById("rating").src = localStorage.getItem("rating_src");
 	document.getElementById("name").innerHTML = localStorage.getItem("name");
 	document.getElementById("lat").innerHTML = "latitude: " + localStorage.getItem("lat");
 	document.getElementById("long").innerHTML = "longitude: " + localStorage.getItem("long");
+	*/
+
+	get_img_src(rating);
+	document.getElementById("bus_img").src = img_url;
+	//document.getElementById("rating").src = localStorage.getItem("rating_src");
+	document.getElementById("name").innerHTML = name;
+	document.getElementById("lat").innerHTML = "latitude: " + lat;
+	document.getElementById("long").innerHTML = "longitude: " + long;
 
 function get_img_src(rating){
   var src;
@@ -72,7 +81,7 @@ function get_img_src(rating){
       break;
   }
   document.getElementById("rating").src = src;
-  localStorage.setItem("rating_src", src);
+  //localStorage.setItem("rating_src", src);
 
 }
 
