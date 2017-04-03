@@ -20,12 +20,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 //var htmlSource = fs.readFileSync("search.html", "utf8");
 
-app.configure(function() {
-    app.use(express.logger('dev')); /* 'default', 'short', 'tiny', 'dev' */
-    app.use(express.bodyParser());
-    app.use(express.cookieParser());
-    app.use(express.static('static'));
-});
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
