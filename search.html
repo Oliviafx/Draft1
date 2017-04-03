@@ -40,7 +40,7 @@
   	<option value="4"> $$$$ </option>
   </select>
   <p/>
-   <button type="submit" >Submit! </button>
+   <button type="submit" onclick="process_data()">Submit! </button>
 </form>
 
 <!--
@@ -78,7 +78,7 @@
 
 
 <script type="text/javascript">
-/*
+
 var info;
 
 function process_data(){
@@ -111,9 +111,9 @@ function send_request(loc, pl){
       }
    });
 }
-*/
 
 
+/*
 
 	$('#searchform').submit(function(e){
     e.preventDefault();
@@ -135,7 +135,7 @@ function send_request(loc, pl){
     return false;
 });
 
-
+*/
   function initMap() {
 
        var latitude = parseFloat(info.coordinates.latitude);
