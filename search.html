@@ -64,7 +64,7 @@
     $.ajax({
     	data: $('#searchform').serialize(),
        	type: 'POST',
-       	url: "https://guarded-taiga-83128.herokuapp.com/",
+       	url: "https://guarded-taiga-83128.herokuapp.com/search",
         success : function (response) {
             console.log("SUCCESS!");
             var data = response;
