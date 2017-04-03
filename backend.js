@@ -50,7 +50,7 @@ yelp.accessToken(clientId, clientSecret).then(response => {
 });
 */
 
-app.get('/', function(req, res){
+app.get('/search', function(req, res){
 
   var user_input_price = parseInt(req.query.price);
   var price = "";
