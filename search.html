@@ -27,7 +27,7 @@
 <h1> Search for what you want: </h1>
 <center>
 
-<form id="searchform" method="POST" target="foo">
+<form id="searchform" method="GET" action="/search" target="foo">
   <input type="text" name="location" placeholder="Search.." id="userinput">
   <p/>
   <p/>
@@ -119,7 +119,7 @@ function send_request(loc, pl){
     e.preventDefault();
     $.ajax({
     	  data: $(this).serialize(),
-       	type: 'POST',
+       	type: 'GET',
         dataType:'json',
        	url: "https://guarded-taiga-83128.herokuapp.com/",
         success : function (response) {
