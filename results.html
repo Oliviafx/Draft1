@@ -39,12 +39,10 @@
 	document.getElementById("long").innerHTML = "longitude: " + localStorage.getItem("long");
 	*/
 
-	get_img_src(rating);
-	document.getElementById("bus_img").src = img_url;
-	//document.getElementById("rating").src = localStorage.getItem("rating_src");
-	document.getElementById("name").innerHTML = name;
-	document.getElementById("lat").innerHTML = "latitude: " + lat;
-	document.getElementById("long").innerHTML = "longitude: " + long;
+	var name = document.cookie.replace(/(?:(?:^|.*;\s*)name\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+
+	document.getElementById("name").innerHTML = sessionStorage.getItem("name");
+
 
 function get_img_src(rating){
   var src;

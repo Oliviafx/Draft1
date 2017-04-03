@@ -8,8 +8,8 @@ const path = require('path');
 const fs = require('fs');
 const jsdom = require('jsdom');
 var ls = require('local-storage');
-//const Heroku = require('heroku-client');
-//const heroku = new Heroku({ token: process.env.HEROKU_API_TOKEN });
+var cookies = require('cookies');
+
 
 const clientId = 'USLc4bO1jd_WNmHyMtyWeQ';
 const clientSecret = 'CgmeETa6k6WbF82MNxaRuBU0rbTuILsTRic8nBcN5brSZdyUddRWKg2AC0Zuud9D';
@@ -40,12 +40,7 @@ yelp.accessToken(clientId, clientSecret).then(response => {
 
      var obj = JSON.parse(prettyJson);
 
-     global.name = obj.name;
-     global.phone = obj.phone;
-     global.img_url = obj.image_url;
-     global.lat = obj.coordinates.latitude;
-     global.long = obj.coordinates.longitude;
-     global.rating = obj.rating;
+     cookies.set(name, obj.name)
 
      /*
   	ls.set("name", obj.name);
