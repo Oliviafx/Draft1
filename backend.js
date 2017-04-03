@@ -27,7 +27,7 @@ app.use(function(req, res, next) {
 
 var temp;
 
-/*
+
 app.post('/', upload.array(), function(req, res){
 
 	console.log(req.body);
@@ -48,8 +48,9 @@ yelp.accessToken(clientId, clientSecret).then(response => {
 });
 	res.json(temp);
 });
-*/
 
+
+/*
 app.get('/search', function(req, res){
 
   var user_input_price = parseInt(req.query.price);
@@ -86,6 +87,7 @@ yelp.accessToken(clientId, clientSecret).then(response => {
 });
   res.json(temp);
 });
+*/
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
