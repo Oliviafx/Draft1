@@ -91,7 +91,8 @@ function process_data(){
 
 function send_request(loc, pl){
    $.ajax({
-      url: 'https://guarded-taiga-83128.herokuapp.com/search',
+      //url: 'https://guarded-taiga-83128.herokuapp.com/search',
+      url:'/search',
       type: 'GET',
       dataType:'json',
       data:{
