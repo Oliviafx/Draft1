@@ -37,7 +37,6 @@ $('window').on('load', function(){
 </script>
 <table>
 	<tr>
-		<th> Picture </th>
 		<th> Name </th>
 		<th> Price </th>
 		<th> Rating </th>
@@ -45,23 +44,26 @@ $('window').on('load', function(){
 		<th> Distance </th>
 	</tr>
 	<tr> 
-	<th> <img src="getSRC()"> </th>
 	<th> <%= data.name %> </th>
 	<th> <%= data.price %> </th>
-	<th> <img id="rating_src" > </th>
+	<th> <%= data.rating %> </th>
 	<th> <%= data.review_count %> </th>
 	<th> <%= data.distance %> </th>
 	</tr>
 </table>
+
+<button id="redirect" onclick="map.html"> Get directions </button>
 
 </div>
 <p id="srcurl"> </p>
 <div id="map"></div>
 
 <script>
-window.latitude = <%= data.latitude %>;
-window.longitude = <%= data.longitude %>;
+var latitude = <%= data.latitude %>;
+var longitude = <%= data.longitude %>;
 
+sessionStorage.setItem('lat', latitude);
+sessionStorage.setItem('long', longitude);
 
 
 function getRatingURL(rating){
@@ -122,6 +124,7 @@ function getSRC(){
         });
       }
     </script>
+
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzU_JDzOxBsPCvWRWlq6fsd7PvVBYdmpw&callback=initMap">
     </script>
