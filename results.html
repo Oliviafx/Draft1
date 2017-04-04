@@ -12,6 +12,9 @@
 <script>
 var latitude = <%= data.latitude %>;
 var longitude = <%= data.longitude %>;
+var src = <%= data.rating %>;
+var rating = <%= data.rating %>;
+document.getElementById("image").src = src;
 </script>
 
 <script type="text/javascript" src="backend.js"></script>
@@ -27,7 +30,10 @@ var longitude = <%= data.longitude %>;
 <h1>Recommendations</h1>
 
 <div id="results">
+<img id="image">
 <p> Based off your request, we recommend <%= data.name %>, at a price level of <%= data.price %>. <%= data.name %> has a rating of <%= data.rating %>, based off <%= data.review_count %> reviews. <%= data.name %> is at a distance of <%= data.distance %> meters away from where you are now. </p>
+
+<p> Here is <%= data.name %> on Google Maps: </p>
 
 </div>
 
