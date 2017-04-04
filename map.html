@@ -17,7 +17,9 @@
       function initMap() {
 
        var latitude = parseFloat(sessionStorage.getItem("lat"));
+       console.log(sessionStorage.getItem("lat"));
         var longitude = parseFloat(sessionStorage.getItem("long"));
+        console.log(sessionStorage.getItem("long"));
 
         var uluru =new google.maps.LatLng(latitude, longitude);
         var map = new google.maps.Map(document.getElementById('map'), {
