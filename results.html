@@ -12,8 +12,9 @@
 <script>
 var latitude = <%= data.latitude %>;
 var longitude = <%= data.longitude %>;
-var src = <%= data.src %>;
+var src = <%= data.rating %>;
 var rating = <%= data.rating %>;
+document.getElementById("image").src = src;
 </script>
 
 <script type="text/javascript" src="backend.js"></script>
@@ -39,8 +40,6 @@ var rating = <%= data.rating %>;
 <div id="map"></div>
 
 <script>
-document.getElementById("image").src = src;
-
 function getRatingURL(rating){
 var src;
   switch(rating){
@@ -77,10 +76,7 @@ var src;
   }
   document.getElementById("rating").src = src;
 }
-
-
       function initMap() {
-
         var uluru =new google.maps.LatLng(latitude, longitude);
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 18,
