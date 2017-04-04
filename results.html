@@ -3,6 +3,12 @@
 <head>
 <link rel="stylesheet" type="text/css" href="stylesheet.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<style>
+#map {
+        height: 400px;
+        width: 100%;
+       }
+</style>
 <script>
 
 $('window').on('load', function(){
@@ -14,7 +20,6 @@ $('window').on('load', function(){
 <script type="text/javascript" src="backend.js"></script>
 </head>
 <body>
-
 <div class="navbar navbar-default navbar-static-top" id = "NavBar">
 <ul>
   <li><a href="index.html" class="button"> HOME </a></li>
@@ -22,10 +27,62 @@ $('window').on('load', function(){
 </ul>
 </div>
 
+<h1>Recommendations</h1>
+
 <div id="results">
-<p> Name: <%= data.name %> </p>
-<p> Price: <%= data.price %> </p>
+<table>
+	<tr>
+		<th> Picture </th>
+		<th> Name </th>
+		<th> Price </th>
+		<th> Rating </th>
+		<th> Review Count </th>
+		<th> Distance </th>
+	</tr>
+	<tr> 
+	<th> <img src="getSRC()"> </th>
+	<th> <%= data.name %> </th>
+	<th> <%= data.price %> </th>
+	<th> <%= data.rating %> </th>
+	<th> <%= data.review_count %> </th>
+	<th> <%= data.distance %> </th>
+	</tr>
+</table>
+
 </div>
+<p id="srcurl"> </p>
+<div id="map"></div>
+
+<script>
+
+function getSRC(){
+ 	var src = <%= data.src %>;
+ 	//console.log(src);
+ 	document.getElementById("srcurl").innerHTML=src;
+ 	return src;
+}
+
+
+      function initMap() {
+
+       var latitude = <%= data.latitude %>;
+        var longitude = <%= data.longitude %>;
+
+        var uluru =new google.maps.LatLng(latitude, longitude);
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 18,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzU_JDzOxBsPCvWRWlq6fsd7PvVBYdmpw&callback=initMap">
+    </script>
+
 
 </body>
 

@@ -39,7 +39,7 @@ yelp.accessToken(clientId, clientSecret).then(response => {
 
      console.log(info.name);
 
-     res.render('index', {data: info});
+     res.render('results', {data: info});
 	}).catch(e => {
   		console.log(e);
 	});
