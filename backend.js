@@ -35,7 +35,7 @@ yelp.accessToken(clientId, clientSecret).then(response => {
 
      var obj = JSON.parse(prettyJson);
      var url = obj.img_url;
-     var info = {src: url, name: obj.name, price: obj.price, rating: obj.rating, review_count: obj.review_count, distance: obj.distance}
+     var info = {src: url, name: obj.name, price: obj.price, rating: obj.rating, review_count: obj.review_count, distance: obj.distance, latitude: obj.coordinates.latitude, longitude: obj.coordinates.longitude}
 
      console.log(info.name);
 
