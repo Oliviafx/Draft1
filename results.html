@@ -10,11 +10,8 @@
        }
 </style>
 <script>
-
-$('window').on('load', function(){
-	$('results').hide();
-});
-
+var latitude = <%= data.latitude %>;
+var longitude = <%= data.longitude %>;
 </script>
 
 <script type="text/javascript" src="backend.js"></script>
@@ -37,9 +34,6 @@ $('window').on('load', function(){
 <div id="map"></div>
 
 <script>
-var latitude = <%= data.latitude %>;
-var longitude = <%= data.longitude %>;
-
 
 function getRatingURL(rating){
 var src;
