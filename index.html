@@ -1,42 +1,58 @@
-<!DOCTYPE html>
+<!-Doctype html>
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="stylesheet.css">
-<title> Recommendations </title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script>
+
+$('window').on('load', function(){
+	$('results').hide();
+});
+
+</script>
+
+<script type="text/javascript" src="backend.js"></script>
 </head>
-
-
-<!--Adding a NavBar at the top -->
-
+<body>
 <div class="navbar navbar-default navbar-static-top" id = "NavBar">
 <ul>
-	<li><a href="index.html" class="button"> HOME </a></li>
-	<li><a href="search.html" class="button"> SEARCH </a></li>
-	<li><a href="map.html" class="button"> MAP </a></li>
-	<li><a href="results.html" class="button"> RESULTS </a></li>
+  <li><a href="index.html" class="button"> HOME </a></li>
+  <li><a href="results.html" class="button"> RESULTS </a></li>
 </ul>
 </div>
 
-<!-- Header --> 
-<header class="Home Page" id = "home"> <!-- Change to make a filler pic-->
-	<h1 class="xxlarge"> Recommendations </h1>
-</header>
+<form id="form" method="POST" action="/">
+<label for="location"> Enter your location: </label>
+<input type="text" name="location" >
+</p>
+<label for="price"> Enter your price, on a scale of 1-4: </label>
+<input type="text" name="price" >
+</p>
+<input type="submit" value="submit"/>
+</form>
 
-
-<body>
-<div class= "content">
-
+<div id="results">
+<table>
+	<tr>
+		<th> Picture </th>
+		<th> Name </th>
+		<th> Price </th>
+		<th> Rating </th>
+		<th> Review Count </th>
+		<th> Distance </th>
+	</tr>
+	<tr> 
+	<th> <img src="<%= data.src %>"> </th>
+	<th> <%= data.name %> </th>
+	<th> <%= data.price %> </th>
+	<th> <%= data.rating %> </th>
+	<th> <%= data.review_count %> </th>
+	<th> <%= data.distance %> </th>
+	</tr>
+</table>
 
 </div>
 
-
-<p id="testContent"></p>
-
-
-
 </body>
-
-
-
 
 </html>
