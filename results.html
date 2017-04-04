@@ -30,6 +30,11 @@ $('window').on('load', function(){
 <h1>Recommendations</h1>
 
 <div id="results">
+<script>
+  
+  var rating = <%= data.rating %>;
+  getRatingURL(rating);
+</script>
 <table>
 	<tr>
 		<th> Picture </th>
@@ -43,7 +48,7 @@ $('window').on('load', function(){
 	<th> <img src="getSRC()"> </th>
 	<th> <%= data.name %> </th>
 	<th> <%= data.price %> </th>
-	<th> <img id="rating_src"> </th>
+	<th> <img id="rating_src" > </th>
 	<th> <%= data.review_count %> </th>
 	<th> <%= data.distance %> </th>
 	</tr>
@@ -57,7 +62,7 @@ $('window').on('load', function(){
 window.latitude = <%= data.latitude %>;
 window.longitude = <%= data.longitude %>;
 
-var rating = <%= data.rating %>;
+
 
 function getRatingURL(rating){
 var src;
