@@ -30,42 +30,15 @@ $('window').on('load', function(){
 <h1>Recommendations</h1>
 
 <div id="results">
-<script>
-  
-  var rating = <%= data.rating %>;
-  getRatingURL(rating);
-</script>
-<!--
-<table>
-	<tr>
-		<th> Name </th>
-		<th> Price </th>
-		<th> Rating </th>
-		<th> Review Count </th>
-		<th> Distance </th>
-	</tr>
-	<tr> 
-	<th> <%= data.name %> </th>
-	<th> <%= data.price %> </th>
-	<th> <%= data.rating %> </th>
-	<th> <%= data.review_count %> </th>
-	<th> <%= data.distance %> </th>
-	</tr>
-</table>
--->
-<p> Based off your request, we recommend <%= data.name %>, at a price level of <%= data.price %>. <%= data.name %> has a rating of <%= data.rating %>, based off <%= data.review_count %> reviews. <%= data.name %> is at a distance of <%= data.distance %>. </p>
-
+<p> Based off your request, we recommend <%= data.name %>, at a price level of <%= data.price %>. <%= data.name %> has a rating of <%= data.rating %>, based off <%= data.review_count %> reviews. <%= data.name %> is at a distance of <%= data.distance %> meters away from where you are now. </p>
 
 </div>
-<p id="srcurl"> </p>
+
 <div id="map"></div>
 
 <script>
 var latitude = <%= data.latitude %>;
 var longitude = <%= data.longitude %>;
-
-sessionStorage.setItem('lat', latitude);
-sessionStorage.setItem('long', longitude);
 
 
 function getRatingURL(rating){
@@ -106,16 +79,9 @@ var src;
 }
 
 
-function getSRC(){
- 	var src = <%= data.src %>;
- 	document.getElementById("srcurl").innerHTML=src;
- 	return src;
-}
-
-
       function initMap() {
 
-        var uluru =new google.maps.LatLng(window.latitude, window.longitude);
+        var uluru =new google.maps.LatLng(latitude, longitude);
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 18,
           center: uluru
@@ -127,8 +93,7 @@ function getSRC(){
       }
     </script>
 
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzU_JDzOxBsPCvWRWlq6fsd7PvVBYdmpw&callback=initMap">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzU_JDzOxBsPCvWRWlq6fsd7PvVBYdmpw&callback=initMap">
     </script>
 
 
