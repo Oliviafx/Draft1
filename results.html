@@ -35,6 +35,7 @@ $('window').on('load', function(){
   var rating = <%= data.rating %>;
   getRatingURL(rating);
 </script>
+<!--
 <table>
 	<tr>
 		<th> Name </th>
@@ -51,9 +52,14 @@ $('window').on('load', function(){
 	<th> <%= data.distance %> </th>
 	</tr>
 </table>
+-->
+<p> Based off your request, we recommend <%= data.name %>, at a price level of <%= data.price %>. <%= data.name %> has a rating of <%= data.rating %>, based off <%= data.review_count %>. <%= data.name %> is at a distance of <%= data.distance %>. </p>
 
-<a href="map.html" class="button"> Get Directions! </a>
-
+<div>
+<ul>
+	<li><a href="map.html" class="button"> Get Directions! </a></li>
+</ul>
+</div>
 </div>
 <p id="srcurl"> </p>
 <div id="map"></div>
