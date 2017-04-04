@@ -54,14 +54,15 @@ $('window').on('load', function(){
 </table>
 
 </div>
-
+<p id="srcurl"> </p>
 <div id="map"></div>
 
 <script>
 
 function getSRC(){
  	var src = <%= data.src %>;
- 	console.log(src);
+ 	//console.log(src);
+ 	document.getElementById("srcurl").innerHTML=src;
  	return src;
 }
 
