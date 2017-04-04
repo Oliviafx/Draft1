@@ -23,7 +23,6 @@ $('window').on('load', function(){
 <div class="navbar navbar-default navbar-static-top" id = "NavBar">
 <ul>
   <li><a href="index.html" class="button"> HOME </a></li>
-  <li><a href="results.html" class="button"> RESULTS </a></li>
 </ul>
 </div>
 
@@ -68,6 +67,11 @@ $('window').on('load', function(){
 
 <script>
 
+
+window.latitude = <%= data.latitude %>;
+window.longitude = <%= data.longitude %>;
+
+
 function getSRC(){
  	var src = <%= data.src %>;
  	//console.log(src);
@@ -75,27 +79,8 @@ function getSRC(){
  	return src;
 }
 
-
-      function initMap() {
-
-       var latitude = <%= data.latitude %>;
-        var longitude = <%= data.longitude %>;
-
-        var uluru =new google.maps.LatLng(latitude, longitude);
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 18,
-          center: uluru
-        });
-        var marker = new google.maps.Marker({
-          position: uluru,
-          map: map
-        });
-      }
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzU_JDzOxBsPCvWRWlq6fsd7PvVBYdmpw&callback=initMap">
-    </script>
-
+    
+</script>
 
 </body>
 
