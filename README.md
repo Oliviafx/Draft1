@@ -4,4 +4,4 @@ This project uses the yelp-fusion API to give a simple recommendation on where t
 
 This project uses a Node.js server to handle calls to the API and uses ejs to render the results. 
 
-This may seem like an abnormally large number of commits - I am new to HTML/CSS/JS and teaching myself.
+This project may seem to have an abnormally large number of commits - I am new to HTML/CSS/JS and teaching myself.
